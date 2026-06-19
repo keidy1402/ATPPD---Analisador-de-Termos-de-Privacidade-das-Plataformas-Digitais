@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 from google import genai
@@ -339,7 +338,7 @@ if opcao != "Selecione...":
         with c1:
             st.markdown(f"""
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="{MAPA\_ICONES\[opcao]}" width="60">
+                    <img src="{MAPA\\\_ICONES\\\[opcao]}" width="60">
                     <h3>Relatório Real de {opcao}</h3>
                 </div>
             """, unsafe_allow_html=True)
@@ -364,7 +363,7 @@ if opcao != "Selecione...":
             for tag in analise['red_flags']:
                 size = random.uniform(1.2, 2.0)
                 opacity = random.uniform(0.65, 1.0)
-                tags_html += f'<span style="font-size:{size}rem; opacity:{opacity}; margin: 8px; display: inline-block; color:#991B1B; font-family:\\'Cinzel\\', serif;">{tag}</span>'
+                tags_html += f'<span style="font-size:{size}rem; opacity:{opacity}; margin: 8px; display: inline-block; color:#991B1B; font-family:\\\\'Cinzel\\\\', serif;">{tag}</span>'
  
             st.markdown(f'<div class="word-cloud-container">{tags_html}</div>', unsafe_allow_html=True)
  
@@ -474,7 +473,7 @@ if opcao != "Selecione...":
  
                     st.markdown(f"""
                         <div class="parchment-card" style="min-height: 200px;">
-                            <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="{link1}" target="\_blank" style="text-decoration: none; color: #162E5C;">{titulo1}</a></h4>
+                            <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="{link1}" target="\\\_blank" style="text-decoration: none; color: #162E5C;">{titulo1}</a></h4>
                             <p style="color: #8C7A6B; font-size: 0.8rem; margin-bottom: 12px; font-style: italic;">Fonte: {fonte1} | Publicado em: {data1}</p>
                             <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Clique no título acima para conferir a reportagem diretamente da fonte original.</p>
                         </div>
@@ -490,7 +489,7 @@ if opcao != "Selecione...":
  
                         st.markdown(f"""
                             <div class="parchment-card" style="min-height: 200px;">
-                                <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="{link2}" target="\_blank" style="text-decoration: none; color: #162E5C;">{titulo2}</a></h4>
+                                <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="{link2}" target="\\\_blank" style="text-decoration: none; color: #162E5C;">{titulo2}</a></h4>
                                 <p style="color: #8C7A6B; font-size: 0.8rem; margin-bottom: 12px; font-style: italic;">Fonte: {fonte2} | Publicado em: {data2}</p>
                                 <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Acompanhe a segunda cobertura do cenário regulatório internacional desta plataforma.</p>
                             </div>
@@ -504,7 +503,7 @@ if opcao != "Selecione...":
             with col_n1:
                 st.markdown(f"""
                     <div class="parchment-card" style="min-height: 200px;">
-                        <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="https://g1.globo.com/tecnologia/" target="\_blank" style="text-decoration: none; color: #162E5C;">{opcao} e Investigações de Tratamento de Dados</a></h4>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="https://g1.globo.com/tecnologia/" target="\\\_blank" style="text-decoration: none; color: #162E5C;">{opcao} e Investigações de Tratamento de Dados</a></h4>
                         <p style="color: #8C7A6B; font-size: 0.8rem; margin-bottom: 12px; font-style: italic;">Fonte: Portal G1 Tecnologia</p>
                         <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Acompanhe as notícias sobre as auditorias mais recentes da ANPD envolvendo tratamento de informações sensíveis no Brasil.</p>
                     </div>
@@ -512,10 +511,11 @@ if opcao != "Selecione...":
             with col_n2:
                 st.markdown(f"""
                     <div class="parchment-card" style="min-height: 200px;">
-                        <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="https://www.bbc.com/portuguese/topics/c40g969r280t" target="\_blank" style="text-decoration: none; color: #162E5C;">Mudanças nas Políticas e Regulamentações da Controladora do {opcao}</a></h4>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 8px;"><a href="https://www.bbc.com/portuguese/topics/c40g969r280t" target="\\\_blank" style="text-decoration: none; color: #162E5C;">Mudanças nas Políticas e Regulamentações da Controladora do {opcao}</a></h4>
                         <p style="color: #8C7A6B; font-size: 0.8rem; margin-bottom: 12px; font-style: italic;">Fonte: BBC Brasil</p>
                         <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Análise crítica sobre as novas regras globais de inteligência artificial e privacidade de dados de grandes corporações.</p>
                     </div>
                 """, unsafe_allow_html=True)
 
+st.markdown('<div class="footer">FGV-ECMI | Aluna: Keidy Alves Pizzetti Amaro | Prof. Josir Gomes</div>', unsafe_allow_html=True)
 st.markdown('<div class="footer">FGV-ECMI | Aluna: Keidy Alves Pizzetti Amaro | Prof. Josir Gomes</div>', unsafe_allow_html=True)
