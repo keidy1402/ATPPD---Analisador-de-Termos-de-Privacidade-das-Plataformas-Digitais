@@ -338,7 +338,7 @@ if opcao != "Selecione...":
         with c1:
             st.markdown(f"""
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="{MAPA\\\_ICONES\\\[opcao]}" width="60">
+                    <img src="{MAPA_ICONES[opcao]}" width="60">
                     <h3>Relatório Real de {opcao}</h3>
                 </div>
             """, unsafe_allow_html=True)
