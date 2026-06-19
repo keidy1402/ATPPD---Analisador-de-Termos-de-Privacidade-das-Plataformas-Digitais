@@ -4,3 +4,12 @@ matplotlib
 wordcloud
 requests
 plotly
+pandas
+google
+google.genai
+pydantic
+os
+urllib
+ElementTree
+random
+io
