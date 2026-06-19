@@ -1,0 +1,220 @@
+﻿Como funcionam as diretrizes da comunidade e de conteúdo adequado para publicidade
+Nossas políticas garantem um ambiente responsável em que espectadores, criadores e anunciantes podem confiar para continuar crescendo no YouTube.
+Assim como em qualquer sistema, às vezes cometemos erros. Por isso, as contestações são uma parte importante dos nossos processos. Os criadores são notificados quando algum vídeo é removido devido a violações de políticas ou quando eles são suspensos do YPP. Eles podem contestar caso discordem da nossa decisão.
+Chegar a esse equilíbrio só é possível por causa das nossas diretrizes da comunidade e diretrizes de conteúdo adequado para publicidade.
+Diretrizes da comunidade 
+O conteúdo que viola nossas diretrizes da comunidade é sinalizado pela combinação de detecção automática, usada na maioria das sinalizações, e denúncia humana. Fazemos o possível para garantir que esse conteúdo não seja visto por muitas pessoas ou por ninguém antes da remoção.
+Podemos abrir algumas exceções se o conteúdo tiver contexto claramente educativo, documental, científico ou artístico (EDCA), incluindo vídeos de interesse público.
+Diretrizes de conteúdo adequado para publicidade 
+As marcas que anunciam no YouTube confiam em nós para proteger seus interesses comerciais.
+Para manter essa confiança, estabelecemos um conjunto de diretrizes de conteúdo adequado para publicidade que os criadores de conteúdo no Programa de Parcerias do YouTube (YPP) precisam seguir para veicular anúncios no canal e ganhar uma parte da receita.
+Como apoiamos os criadores de conteúdo
+Desde 2007, criadores que atendem aos requisitos são pagos mensalmente pelo nosso modelo de participação na receita, o Programa de Parcerias do YouTube (YPP).
+Para participar do YPP, os criadores têm exigências maiores para o conteúdo que postam no YouTube. Eles precisam seguir as políticas de monetização do YouTube, e nós analisamos o canal de todos que se candidatam antes de aceitá-los no YPP. Também desmonetizamos os vídeos que violam nossas diretrizes de conteúdo adequado para publicidade e suspendemos do programa os criadores que cometem ofensas recorrentes. Com esse modelo, os criadores de conteúdo têm um incentivo de longo prazo para zelar pela segurança do YouTube e cumprir as nossas políticas.
+Também oferecemos aos criadores de conteúdo uma série de ferramentas para gerenciar o conteúdo e as comunidades:
+Gestão de experiências
+As diretrizes do canal ajudam os criadores de conteúdo a definir o tipo de diálogos que querem ter no canal.
+Os criadores de conteúdo podem reter comentários possivelmente impróprios para analisá-los depois, ocultar pessoas específicas, bloquear determinadas palavras, atribuir privilégios de moderação e muito mais.
+Como definir a diretrizes do canal 
+Gestão do canal
+Oferecemos uma variedade de produtos que ajudam os criadores de conteúdo a decidir como gerenciar seus canais.
+Como gerenciar posts e comentários 
+Recursos de privacidade e segurança
+No YouTube, a privacidade e a segurança são muito importantes. Por isso, oferecemos diversas ferramentas e recursos para oferecer suporte aos criadores de conteúdo.
+Como usar as ferramentas de privacidade e segurança 
+
+
+No YouTube, não é permitido conteúdo que tem o objetivo de exaltar, promover ou ajudar organizações criminosas, extremistas ou violentas. Consideramos vários fatores, como classificações de governos e organizações internacionais, para determinar o que constitui uma organização criminosa ou terrorista.
+Também ajudamos a fundar o Global Internet Forum to Counter Terrorism (GIFCT) (link em inglês). Em parceria com outras empresas de tecnologia, o GIFCT combate o conteúdo terrorista na Web, oferecendo treinamentos e outros recursos a empresas menores com desafios similares.
+Cumprimento das diretrizes da comunidade do YouTube
+Nossa missão no YouTube é dar voz e mostrar o mundo a todas as pessoas. Nossas políticas nos ajudam a manter um negócio responsável que espectadores, criadores de conteúdo e anunciantes possam usar para continuar crescendo no YouTube. Nossas diretrizes da comunidade definem o que não é permitido na plataforma. Por exemplo, não aceitamos pornografia, incitação à violência, assédio nem discurso de ódio. Contamos com pessoas e tecnologias para detectar conteúdo inadequado e aplicar essas diretrizes. Este relatório fornece dados sobre como aplicamos nossas políticas.
+Número de canais removidos
+out. de 2025 – dez. de 2025
+Total de canais removidos
+3.414.772
+Quando um canal é rescindido, todos os vídeos dele são removidos.Número de vídeos removidos durante esse período devido a uma suspensão no nível do canal: 69.400.808.
+Um canal do YouTube será rescindido se acumular três Avisos das diretrizes da comunidade em 90 dias, se tiver um caso individual de abuso grave (como comportamento predatório) ou se for determinado que o canal é integralmente dedicado à violação das nossas diretrizes (como costuma ser o caso com contas de spam). Quando um canal é rescindido, todos os vídeos dele são removidos.
+Esta seção mostra o número de canais removidos pelo YouTube por violação das diretrizes da comunidade.
+Canais removidos, divididos por motivo de remoção
+Spams, práticas enganosas…DesinformaçãoSegurança infantil1/48,0%81,9%
+Removal reason
+	Removal amount
+	Spams, práticas enganosas e golpes
+	2.796.121
+	Desinformação
+	273.443
+	Segurança infantil
+	118.248
+	Nudez ou conteúdo sexual
+	73.764
+	Atos perigosos ou nocivos
+	59.862
+	Conteúdo abusivo ou de incitação ao ódio
+	32.796
+	Promoção de violência e extremismo violento
+	30.715
+	Assédio e bullying virtual
+	10.855
+	Diversas violações da política
+	9.199
+	Conteúdo violento ou explícito
+	6.166
+	Outros
+	3.603
+	out. de 2025 – dez. de 2025
+O gráfico mostra o volume de canais removidos pelo YouTube, dividido por motivo da remoção.
+Quando rescindimos um canal após o envio de três advertências relacionadas às diretrizes da comunidade por violar mais de uma política em um período de 90 dias, usamos a categoria "Diversas violações de políticas".
+Vídeos removidos em números
+out. de 2025 – dez. de 2025
+Incluir detecção automatizada
+Total de vídeos removidos
+8.634.204
+O YouTube conta com equipes do mundo todo para revisar vídeos sinalizados e remover o conteúdo que viola nossas diretrizes da comunidade, restringir o acesso a vídeos, como material que pode não ser adequado para todos os públicos , ou manter o conteúdo publicado caso não viole nenhuma regra ou mereça uma exceção por ter contexto educacional, documental, científico ou artístico.
+Este gráfico mostra o número de vídeos removidos pelo YouTube por violação das diretrizes da comunidade.
+Vídeos removidos por origem da primeira detecção
+Vídeos removidosDetecção automatizadaUsuárioOrganizaçãoAgência governamental02.000.0004.000.0006.000.0008.000.00010.000.0008.473.946118.716118.71641.54141.54111
+Usuário que fez a denúncia
+	Vídeos removidos
+	Detecção automatizada
+	8.473.946
+	Usuário
+	118.716
+	Organização
+	41.541
+	Agência governamental
+	1
+	out. de 2025 – dez. de 2025
+Incluir detecção automatizada
+Este gráfico mostra o volume de vídeos removidos pelo YouTube, classificados pela primeira fonte de detecção (sinalização automática ou detecção realizada por pessoas). As sinalizações de pessoas podem ser feitas por usuários ou membros do Programa de Notificações Prioritárias do YouTube. Os participantes do Programa de Notificações Prioritárias incluem organizações não governamentais e órgãos governamentais que notificam a plataforma, com eficiência, sobre conteúdo que viola nossas diretrizes da comunidade.
+Vídeos removidos por visualizações
+0 visualizações1-10 visualizaçõesDe 11 a 100 visualizaçõesDe 101 a mil visualizaçõesDe 1.001 a 10 mil visualiz…Mais de 10 mil…0%20%40%60%42,26%41,41%7,78%7,78%5,13%5,13%2,17%2,17%1,25%1,25%
+Intervalo de visualizações
+	Porcentagem
+	0 visualizações
+	42,26%
+	1-10 visualizações
+	41,41%
+	De 11 a 100 visualizações
+	7,78%
+	De 101 a mil visualizações
+	5,13%
+	De 1.001 a 10 mil visualizações
+	2,17%
+	Mais de 10 mil visualizações
+	1,25%
+	out. de 2025 – dez. de 2025
+Todas as origens de detecção
+O YouTube se empenha para garantir que conteúdos que desrespeitem nossas regras não sejam visualizados, ou ao menos sejam visualizados pelo menor número de pessoas possível, antes de serem removidos. Com a sinalização automática, podemos agir de maneira mais rápida e precisa na aplicação das nossas políticas. Este gráfico mostra a porcentagem de vídeos removidos antes de o conteúdo ser visto em comparação com as exclusões feitas após algumas visualizações.
+Vídeos removidos, por motivo
+Segurança infantilAssédio e bullying vi…Atos perigosos ou n…1/34,2%5,0%6,0%8,2%9,7%64,1%
+Removal reason
+	Removal amount
+	Segurança infantil
+	5.531.283
+	Assédio e bullying virtual
+	840.943
+	Atos perigosos ou nocivos
+	707.429
+	Conteúdo violento ou explícito
+	520.942
+	Nudez ou conteúdo sexual
+	431.901
+	Promoção de violência e extremismo violento
+	361.240
+	Conteúdo abusivo ou de incitação ao ódio
+	151.218
+	Outros
+	45.422
+	Spams, práticas enganosas e golpes
+	32.489
+	Desinformação
+	11.337
+	out. de 2025 – dez. de 2025
+Este gráfico mostra o volume de vídeos removidos pelo YouTube, classificados por motivo da remoção. Os revisores avaliam os vídeos sinalizados em relação a todas as nossas diretrizes e políticas da comunidade, independentemente do motivo da sinalização.
+Vídeos removidos por país/região
+Este gráfico mostra o número de vídeos removidos pelo YouTube, por país/região de upload. Esse dado é baseado no endereço IP do usuário que fez o envio do vídeo no momento do upload. O endereço IP geralmente corresponde à geolocalização do usuário, a menos que ele esteja usando uma rede privada virtual (VPN) ou um servidor proxy.
+As diretrizes da comunidade do YouTube são aplicadas de maneira consistente em todo o mundo, qualquer que seja o local de upload do conteúdo. Quando o conteúdo é removido por violar nossas diretrizes, isso é feito globalmente. Para saber mais sobre as ações tomadas de acordo com as leis locais, consulte o relatório de transparência sobre solicitações governamentais de remoção de conteúdo do Google.
+out. de 2025 – dez. de 2025
+Todos os países/todas as regiões
+Classificação
+	País/região*
+	Vídeos removidos
+	1
+	Índia
+	2.812.127
+	2
+	Brasil
+	913.196
+	3
+	Estados Unidos
+	811.659
+	4
+	Indonésia
+	469.436
+	5
+	Bangladesh
+	263.608
+	6
+	Rússia
+	184.648
+	7
+	Turquia
+	177.568
+	8
+	Paquistão
+	170.965
+	9
+	Filipinas
+	136.607
+	10
+	México
+	128.657
+	 anterior 1 de 3 avançar 
+*O país/região é baseado no endereço IP registrado no momento do upload do vídeo
+Comentários removidos, por números
+out. de 2025 – dez. de 2025
+Total de comentários removidos
+1.383.370.399
+O YouTube é uma comunidade vibrante em que milhares de pessoas publicam bilhões de comentários a cada trimestre. Combinando pessoas e tecnologia, removemos comentários que violam nossas diretrizes da comunidade. Nossos sistemas também filtram e retêm comentários possivelmente inadequados para que os criadores de conteúdo possam revisar e aprovar ou remover esse material.
+Este gráfico mostra o volume de comentários removidos pelo YouTube por violação das diretrizes da comunidade.
+Os dados não incluem postagens removidas quando o YouTube desativa a seção de comentários em um vídeo. Também não são incluídos comentários retirados quando um vídeo é removido individualmente ou suspenso no nível do canal, quando a conta do autor da mensagem é encerrada ou quando o usuário opta por remover determinados comentários ou retê-los para revisão.
+Comentários removidos, por origem da primeira detecção
+Detecção automatizadaSinalização enviada por uma pessoa99,8%
+Flagging source
+	Removal amount
+	Detecção automatizada
+	1.380.603.677
+	Sinalização enviada por uma pessoa
+	2.766.722
+	out. de 2025 – dez. de 2025
+A maioria dos comentários removidos é detectada pelos nossos sistemas de sinalização automática, mas eles também podem ser sinalizados por pessoas. Contamos com equipes no mundo todo para analisar os comentários sinalizados, a fim de remover conteúdos que violam nossas diretrizes da comunidade e manter os materiais que não infringem nossas diretrizes.
+Este gráfico mostra o volume de comentários removidos pelo YouTube por violação das diretrizes da comunidade, pela fonte da primeira detecção (sinalização automática ou detecção realizada por pessoas).
+Comentários removidos e classificados por motivo da remoção
+Spams, práticas eng…Segurança infantilAssédio e bullying vi…1/38,2%85,6%
+Removal reason
+	Removal amount
+	Spams, práticas enganosas e golpes
+	1.184.111.960
+	Segurança infantil
+	113.581.234
+	Assédio e bullying virtual
+	51.053.630
+	Incitação ao ódio ou abuso
+	15.598.116
+	Promoção de violência e extremismo violento
+	15.441.095
+	Outros
+	1.957.308
+	Conteúdo violento ou explícito
+	967.365
+	Atos perigosos ou nocivos
+	558.761
+	Nudez ou conteúdo sexual
+	100.930
+	Spam, conteúdo enganoso e golpes
+	0
+	out. de 2025 – dez. de 2025
+Este gráfico mostra o volume de comentários removidos pelo YouTube, classificados por motivo da remoção. Esses motivos de remoção estão relacionados às diretrizes da comunidade do YouTube.
+Cumprimento das diretrizes da comunidade do YouTube
+A missão do YouTube é dar voz e mostrar o mundo a todas as pessoas. A liberdade de expressão é a essência da plataforma. Nossa plataforma é um lugar que incentiva uma ampla gama de perspectivas, e isso só acontece porque nossas políticas nos ajudam a manter um negócio responsável e de confiança para espectadores, criadores de conteúdo e anunciantes continuarem a crescer no YouTube.
+Saiba mais em Como funciona o YouTube open_in_new
