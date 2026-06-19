@@ -31,8 +31,8 @@ except ImportError:
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
-    page_title="Espelho da Verdade - Termos de Privacidade",
-    page_icon="🌹",
+    page_title="ATPPD - Analisador de Termos de Privacidade das Plataformas Digitais",
+    page_icon="!",
     layout="wide"
 )
 
