@@ -4,7 +4,6 @@ import xml.etree.ElementTree as ET
 import urllib.parse
 import requests
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go # <-- Importação do Plotly adicionada
 from wordcloud import WordCloud
 import os
 
@@ -44,7 +43,6 @@ st.markdown("""
         box-shadow: 0 6px 12px rgba(0,0,0,0.05);
     }
     
-    /* Customização de títulos dentro do HTML */
     .card-title a {
         text-decoration: none !important; 
         color: #1E3A8A !important;
@@ -54,7 +52,6 @@ st.markdown("""
         color: #3B82F6 !important;
     }
     
-    /* Estilização de badges/containers internos */
     .source-badge {
         background-color: #F3F4F6;
         color: #4B5563;
@@ -103,30 +100,33 @@ if disparar_analise:
         with open(caminho_arquivo, "r", encoding="utf-8") as f:
             conteudo_txt = f.read()
 
-        with st.spinner(f"Processando e cruzando dados das políticas do {opcao}..."):
+        with st.spinner(f"Extraindo insights acionáveis das políticas do {opcao}..."):
             try:
                 model = genai.GenerativeModel('gemini-2.5-flash')
                 
-                # Prompts Inteligentes Ajustados para Respostas Curtas (Máx ~10 linhas no total)
+                # Prompts Focados em CONTEÚDO TÉCNICO E ACIONÁVEL, mantendo a escaneabilidade
                 prompt_resumo = (
-                    f"Com base exclusivamente no seguinte texto de termos de uso da plataforma {opcao}, "
-                    f"faça um resumo crítico de NO MÁXIMO 4 LINHAS destacando os pontos mais invasivos ou perigosos para o usuário. Seja direto ao ponto.\n\n"
+                    f"Leia os termos de uso do {opcao}. Extraia os 3 pontos mais invasivos à privacidade do usuário. "
+                    f"Apresente em formato de bullet points curtos. Para cada ponto, explique especificamente O QUE eles coletam "
+                    f"e QUAL O RISCO REAL para o usuário (ex: 'coletam histórico de navegação para venda de perfil'). "
+                    f"Seja técnico, direto e altamente informativo. Ocupe no máximo 8 a 10 linhas.\n\n"
                     f"TEXTO DOS TERMOS:\n{conteudo_txt[:15000]}"
                 )
                 
                 prompt_palavras = (
-                    f"Com base no seguinte texto de termos de uso da plataforma {opcao}, "
-                    f"extraia de 10 a 15 PALAVRAS-CHAVE isoladas (separadas estritamente por vírgula) que representem os maiores riscos à privacidade contidos no texto.\n\n"
+                    f"Extraia de 10 a 15 termos ou jargões técnicos isolados (separados apenas por vírgula) que representem "
+                    f"as práticas mais agressivas de coleta de dados neste texto do {opcao}.\n\n"
                     f"TEXTO:\n{conteudo_txt[:15000]}"
                 )
                 
                 prompt_dicas = (
-                    f"Considerando os riscos encontrados no texto de termos de uso do {opcao}, "
-                    f"forneça exatamente 3 dicas práticas em formato de tópicos markdown. Cada dica deve ter NO MÁXIMO 2 LINHAS, explicando de forma extremamente direta como se proteger.\n\n"
+                    f"Baseado na política do {opcao}, escreva 3 instruções passo a passo de como o usuário pode proteger sua conta. "
+                    f"Siga estritamente esta estrutura para cada dica:\n"
+                    f"**[Nome da Ação]**: [Explicação breve do porquê fazer isso] -> **Como fazer:** [Caminho aproximado no menu do app, ex: Configurações > Privacidade > Desativar X].\n"
+                    f"Não invente menus, use a lógica padrão do app. Seja extremamente útil e diretivo. Máximo de 10 linhas totais.\n\n"
                     f"TEXTO:\n{conteudo_txt[:15000]}"
                 )
 
-                # Chamadas da API
                 response_resumo = model.generate_content(prompt_resumo)
                 resumo_texto = response_resumo.text
 
@@ -139,7 +139,6 @@ if disparar_analise:
                 # --- EXIBIÇÃO DE RESULTADOS ---
                 st.markdown("---")
                 
-                # Topo dos Resultados: Métrica de Risco + Resumo lado a lado
                 col_metric, col_resumo = st.columns([1, 3])
                 
                 with col_metric:
@@ -152,16 +151,15 @@ if disparar_analise:
                     )
                 
                 with col_resumo:
-                    st.markdown("### 📝 Resumo Crítico dos Termos")
-                    st.info(resumo_texto)
+                    st.markdown("### 📝 Riscos Identificados na Política")
+                    st.warning(resumo_texto)
 
                 st.markdown("---")
 
-                # Meio dos Resultados: Visualizações Lado a Lado (Nuvem e Gráfico Plotly)
                 col_nuvem, col_grafico = st.columns(2)
                 
                 with col_nuvem:
-                    st.markdown("### ☁️ Palavras de Maior Risco")
+                    st.markdown("### ☁️ Termos Sensíveis Encontrados")
                     try:
                         wordcloud = WordCloud(
                             width=600, height=350, 
@@ -176,48 +174,35 @@ if disparar_analise:
                         ax.axis('off')
                         st.pyplot(fig)
                     except Exception:
-                        st.warning("Termos chave extraídos:")
+                        st.warning("Termos extraídos:")
                         st.write(palavras_risco)
 
-                # --- NOVA IMPLEMENTAÇÃO DO PLOTLY ---
                 with col_grafico:
                     st.markdown("### 📊 Índice de Risco Comparativo")
+                    fig_comp, ax_comp = plt.subplots(figsize=(6, 3.5))
                     cores = ['#EF4444' if p == opcao else '#9CA3AF' for p in dados_risco.keys()]
                     
-                    fig_comp = go.Figure(data=[
-                        go.Bar(
-                            x=list(dados_risco.keys()),
-                            y=list(dados_risco.values()),
-                            marker_color=cores,
-                            text=list(dados_risco.values()),
-                            textposition='auto',
-                            hovertemplate='Plataforma: %{x}<br>Risco: %{y}<extra></extra>'
-                        )
-                    ])
+                    bars = ax_comp.bar(dados_risco.keys(), dados_risco.values(), color=cores, width=0.6)
+                    ax_comp.set_ylabel('Pontuação (0-100)', fontsize=9, color='#4B5563')
+                    ax_comp.tick_params(axis='both', labelsize=8, colors='#4B5563')
                     
-                    fig_comp.update_layout(
-                        yaxis_title='Pontuação (0-100)',
-                        yaxis=dict(range=[0, 105], showgrid=True, gridcolor='#F3F4F6'),
-                        xaxis=dict(showgrid=False),
-                        plot_bgcolor='rgba(0,0,0,0)',
-                        margin=dict(l=0, r=0, t=10, b=0),
-                        height=350
-                    )
+                    for spine in ['top', 'right', 'left', 'bottom']:
+                        ax_comp.spines[spine].set_visible(False)
+                    ax_comp.grid(axis='y', linestyle='--', alpha=0.3)
                     
-                    st.plotly_chart(fig_comp, use_container_width=True)
+                    st.pyplot(fig_comp)
 
-                # Análise Comparativa Restrita a 3 Linhas
                 prompt_comp = (
-                    f"Gere uma interpretação em NO MÁXIMO 3 LINHAS, muito direta, comparando o risco do {opcao} (Pontuação atual: {dados_risco[opcao]}/100) "
-                    f"frente ao mercado atual, baseando-se no documento analisado."
+                    f"Explique de forma analítica por que o {opcao} tem nota de risco {dados_risco[opcao]}/100 em comparação ao mercado. "
+                    f"Mencione 1 ou 2 práticas de coleta de dados exclusivas ou agressivas dessa plataforma para justificar a nota. "
+                    f"Seja denso em informação, mas ocupe no máximo 4 linhas."
                 )
                 response_comp = model.generate_content(prompt_comp)
-                st.markdown(f"💡 **Análise Comparativa de Mercado:** *{response_comp.text}*")
+                st.markdown(f"💡 **Por que essa nota?** *{response_comp.text}*")
 
                 st.markdown("---")
 
-                # Seção de Ação e Dicas
-                st.markdown("### 💡 Como se proteger nesta Plataforma")
+                st.markdown("### 🛡️ Manual Prático de Proteção")
                 st.success(dicas_texto)
                 st.markdown("---")
 
@@ -225,10 +210,10 @@ if disparar_analise:
                 st.error(f"Erro ao processar dados com a API do Gemini: {e}")
 
 # --- SEÇÃO 6: NOTÍCIAS RELACIONADAS ---
-st.markdown(f"### 📰 O Que Diz a Mídia Sobre a Privacidade do {opcao if 'opcao' in locals() else 'App'}?")
-st.caption("Fique por dentro das últimas manchetes, vazamentos ou investigações de tratamento de dados:")
+st.markdown(f"### 📰 Monitoramento de Vazamentos e Privacidade: {opcao if 'opcao' in locals() else ''}")
+st.caption("Fique por dentro das últimas manchetes, vazamentos ou investigações envolvendo os seus dados:")
 
-termo_busca = f"{opcao if 'opcao' in locals() else 'Redes Sociais'} privacidade"
+termo_busca = f"{opcao if 'opcao' in locals() else 'Redes Sociais'} vazamento de dados privacidade"
 termo_codificado = urllib.parse.quote(termo_busca)
 url_feed = f"https://news.google.com/rss/search?q={termo_codificado}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
 
@@ -240,7 +225,6 @@ try:
     noticias = root.findall('.//item')[:2]
     
     if noticias:
-        # Notícia 1
         titulo1 = noticias[0].find('title').text
         link1 = noticias[0].find('link').text
         fonte1 = noticias[0].find('source').text if noticias[0].find('source') is not None else "Portal de Notícias"
@@ -255,7 +239,6 @@ try:
                 </div>
             """, unsafe_allow_html=True)
             
-        # Notícia 2
         if len(noticias) > 1:
             titulo2 = noticias[1].find('title').text
             link2 = noticias[1].find('link').text
@@ -271,22 +254,22 @@ try:
                     </div>
                 """, unsafe_allow_html=True)
     else:
-        st.info("Não encontramos notícias recentes específicas para esta plataforma nas últimas horas.")
+        st.info("Não encontramos notícias recentes sobre vazamentos ou privacidade para esta plataforma nas últimas horas.")
 
 except Exception:
     with col_n1:
         st.markdown(f"""
             <div class="news-card">
-                <span class="source-badge">Portal G1 Tecnologia</span>
-                <h4 class="card-title"><a href="https://g1.globo.com/tecnologia/" target="_blank">Privacidade e Investigações de Tratamento de Dados</a></h4>
-                <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Acompanhe atualizações sobre as auditorias mais recentes da ANPD envolvendo tratamento de informações sensíveis no Brasil.</p>
+                <span class="source-badge">Portal G1</span>
+                <h4 class="card-title"><a href="https://g1.globo.com/tecnologia/" target="_blank">Novas Investigações de Tratamento de Dados no Brasil</a></h4>
+                <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Acompanhe atualizações sobre as auditorias mais recentes da ANPD envolvendo tratamento de informações sensíveis.</p>
             </div>
         """, unsafe_allow_html=True)
     with col_n2:
         st.markdown(f"""
             <div class="news-card">
-                <span class="source-badge">BBC Brasil</span>
-                <h4 class="card-title"><a href="https://www.bbc.com/portuguese/topics/c40g969r280t" target="_blank">Mudanças nas Políticas e Regulamentações Globais</a></h4>
-                <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Análise crítica sobre as novas regras globais de inteligência artificial e privacidade de dados de grandes corporações.</p>
+                <span class="source-badge">TecMundo</span>
+                <h4 class="card-title"><a href="https://www.tecmundo.com.br/seguranca" target="_blank">Aprenda a Blindar Suas Redes Sociais</a></h4>
+                <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Artigos práticos sobre segurança da informação, autenticação em duas etapas e gestão de permissões.</p>
             </div>
         """, unsafe_allow_html=True)
