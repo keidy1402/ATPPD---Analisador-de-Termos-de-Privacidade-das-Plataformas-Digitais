@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 import urllib.parse
 import requests
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go # <-- Importação do Plotly adicionada
 from wordcloud import WordCloud
 import os
 
@@ -156,7 +157,7 @@ if disparar_analise:
 
                 st.markdown("---")
 
-                # Meio dos Resultados: Visualizações Lado a Lado (Nuvem e Gráfico)
+                # Meio dos Resultados: Visualizações Lado a Lado (Nuvem e Gráfico Plotly)
                 col_nuvem, col_grafico = st.columns(2)
                 
                 with col_nuvem:
@@ -178,20 +179,32 @@ if disparar_analise:
                         st.warning("Termos chave extraídos:")
                         st.write(palavras_risco)
 
+                # --- NOVA IMPLEMENTAÇÃO DO PLOTLY ---
                 with col_grafico:
                     st.markdown("### 📊 Índice de Risco Comparativo")
-                    fig_comp, ax_comp = plt.subplots(figsize=(6, 3.5))
                     cores = ['#EF4444' if p == opcao else '#9CA3AF' for p in dados_risco.keys()]
                     
-                    bars = ax_comp.bar(dados_risco.keys(), dados_risco.values(), color=cores, width=0.6)
-                    ax_comp.set_ylabel('Pontuação (0-100)', fontsize=9, color='#4B5563')
-                    ax_comp.tick_params(axis='both', labelsize=8, colors='#4B5563')
+                    fig_comp = go.Figure(data=[
+                        go.Bar(
+                            x=list(dados_risco.keys()),
+                            y=list(dados_risco.values()),
+                            marker_color=cores,
+                            text=list(dados_risco.values()),
+                            textposition='auto',
+                            hovertemplate='Plataforma: %{x}<br>Risco: %{y}<extra></extra>'
+                        )
+                    ])
                     
-                    for spine in ['top', 'right', 'left', 'bottom']:
-                        ax_comp.spines[spine].set_visible(False)
-                    ax_comp.grid(axis='y', linestyle='--', alpha=0.3)
+                    fig_comp.update_layout(
+                        yaxis_title='Pontuação (0-100)',
+                        yaxis=dict(range=[0, 105], showgrid=True, gridcolor='#F3F4F6'),
+                        xaxis=dict(showgrid=False),
+                        plot_bgcolor='rgba(0,0,0,0)',
+                        margin=dict(l=0, r=0, t=10, b=0),
+                        height=350
+                    )
                     
-                    st.pyplot(fig_comp)
+                    st.plotly_chart(fig_comp, use_container_width=True)
 
                 # Análise Comparativa Restrita a 3 Linhas
                 prompt_comp = (
