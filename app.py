@@ -91,7 +91,6 @@ col_select, col_btn = st.columns([3, 1])
 with col_select:
     opcao = st.selectbox("Selecione a rede social ou serviço:", plataformas, label_visibility="collapsed")
 with col_btn:
-    # Botão expandido para ocupar a largura da coluna de forma elegante
     disparar_analise = st.button("👁️ Analisar Políticas", use_container_width=True, type="primary")
 
 if disparar_analise:
@@ -107,27 +106,26 @@ if disparar_analise:
             try:
                 model = genai.GenerativeModel('gemini-2.5-flash')
                 
-                # Prompts Inteligentes
+                # Prompts Inteligentes Ajustados para Respostas Curtas (Máx ~10 linhas no total)
                 prompt_resumo = (
                     f"Com base exclusivamente no seguinte texto de termos de uso da plataforma {opcao}, "
-                    f"faça um resumo crítico de NO MÁXIMO 7 LINHAS destacando os pontos mais invasivos ou perigosos para o usuário.\n\n"
+                    f"faça um resumo crítico de NO MÁXIMO 4 LINHAS destacando os pontos mais invasivos ou perigosos para o usuário. Seja direto ao ponto.\n\n"
                     f"TEXTO DOS TERMOS:\n{conteudo_txt[:15000]}"
                 )
                 
                 prompt_palavras = (
                     f"Com base no seguinte texto de termos de uso da plataforma {opcao}, "
-                    f"extraia de 15 a 20 PALAVRAS-CHAVE isoladas (separadas estritamente por vírgula) que representem os maiores riscos à privacidade contidos no texto.\n\n"
+                    f"extraia de 10 a 15 PALAVRAS-CHAVE isoladas (separadas estritamente por vírgula) que representem os maiores riscos à privacidade contidos no texto.\n\n"
                     f"TEXTO:\n{conteudo_txt[:15000]}"
                 )
                 
                 prompt_dicas = (
                     f"Considerando os riscos encontrados no texto de termos de uso do {opcao}, "
-                    f"forneça 3 dicas práticas em formato de tópicos markdown de como o usuário pode configurar sua conta ou agir "
-                    f"dentro da plataforma para se proteger após ter aceitado esses termos.\n\n"
+                    f"forneça exatamente 3 dicas práticas em formato de tópicos markdown. Cada dica deve ter NO MÁXIMO 2 LINHAS, explicando de forma extremamente direta como se proteger.\n\n"
                     f"TEXTO:\n{conteudo_txt[:15000]}"
                 )
 
-                # Chamadas assíncronas/simultâneas simuladas sequencialmente por simplicidade
+                # Chamadas da API
                 response_resumo = model.generate_content(prompt_resumo)
                 resumo_texto = response_resumo.text
 
@@ -137,7 +135,7 @@ if disparar_analise:
                 response_dicas = model.generate_content(prompt_dicas)
                 dicas_texto = response_dicas.text
 
-                # --- EXIBIÇÃO DE RESULTADOS EM LAYOUT MODERNO ---
+                # --- EXIBIÇÃO DE RESULTADOS ---
                 st.markdown("---")
                 
                 # Topo dos Resultados: Métrica de Risco + Resumo lado a lado
@@ -167,7 +165,7 @@ if disparar_analise:
                         wordcloud = WordCloud(
                             width=600, height=350, 
                             background_color='white', 
-                            max_words=25, 
+                            max_words=20, 
                             colormap='Reds',
                             prefer_horizontal=0.7
                         ).generate(palavras_risco)
@@ -189,17 +187,16 @@ if disparar_analise:
                     ax_comp.set_ylabel('Pontuação (0-100)', fontsize=9, color='#4B5563')
                     ax_comp.tick_params(axis='both', labelsize=8, colors='#4B5563')
                     
-                    # Remover bordas do gráfico para visual clean
                     for spine in ['top', 'right', 'left', 'bottom']:
                         ax_comp.spines[spine].set_visible(False)
                     ax_comp.grid(axis='y', linestyle='--', alpha=0.3)
                     
                     st.pyplot(fig_comp)
 
-                # Análise Comparativa gerada por IA abaixo dos gráficos
+                # Análise Comparativa Restrita a 3 Linhas
                 prompt_comp = (
-                    f"Gere uma breve interpretação comparando o risco do {opcao} (Pontuação atual: {dados_risco[opcao]}/100) "
-                    f"frente ao mercado atual com base no que foi analisado no documento."
+                    f"Gere uma interpretação em NO MÁXIMO 3 LINHAS, muito direta, comparando o risco do {opcao} (Pontuação atual: {dados_risco[opcao]}/100) "
+                    f"frente ao mercado atual, baseando-se no documento analisado."
                 )
                 response_comp = model.generate_content(prompt_comp)
                 st.markdown(f"💡 **Análise Comparativa de Mercado:** *{response_comp.text}*")
@@ -214,15 +211,14 @@ if disparar_analise:
             except Exception as e:
                 st.error(f"Erro ao processar dados com a API do Gemini: {e}")
 
-# --- SEÇÃO 6: NOTÍCIAS RELACIONADAS (Sempre visível ou pós busca) ---
-st.markdown(f"### 📰 O Que Diz a Mídia Sobre a Privacidade do {opcao}?")
+# --- SEÇÃO 6: NOTÍCIAS RELACIONADAS ---
+st.markdown(f"### 📰 O Que Diz a Mídia Sobre a Privacidade do {opcao if 'opcao' in locals() else 'App'}?")
 st.caption("Fique por dentro das últimas manchetes, vazamentos ou investigações de tratamento de dados:")
 
-termo_busca = f"{opcao} privacidade"
+termo_busca = f"{opcao if 'opcao' in locals() else 'Redes Sociais'} privacidade"
 termo_codificado = urllib.parse.quote(termo_busca)
 url_feed = f"https://news.google.com/rss/search?q={termo_codificado}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
 
-# Criando colunas para os Cards de Notícias
 col_n1, col_n2 = st.columns(2)
 
 try:
@@ -265,12 +261,11 @@ try:
         st.info("Não encontramos notícias recentes específicas para esta plataforma nas últimas horas.")
 
 except Exception:
-    # Fallback elegante caso a requisição falhe
     with col_n1:
         st.markdown(f"""
             <div class="news-card">
                 <span class="source-badge">Portal G1 Tecnologia</span>
-                <h4 class="card-title"><a href="https://g1.globo.com/tecnologia/" target="_blank">{opcao} e Investigações de Tratamento de Dados</a></h4>
+                <h4 class="card-title"><a href="https://g1.globo.com/tecnologia/" target="_blank">Privacidade e Investigações de Tratamento de Dados</a></h4>
                 <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Acompanhe atualizações sobre as auditorias mais recentes da ANPD envolvendo tratamento de informações sensíveis no Brasil.</p>
             </div>
         """, unsafe_allow_html=True)
