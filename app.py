@@ -283,7 +283,7 @@ def gerar_pdf_corrigido(plataforma, analise):
     step_style = ParagraphStyle('S', parent=styles['Normal'], fontName='Helvetica', fontSize=9.5, textColor=colors.HexColor('#2E7D32'), leading=13, leftIndent=15, spaceAfter=5)
  
     story = [
-        Paragraph(f"ESCUDO DE DEFESA: {limpar_texto_pdf(plataforma)}", title_style),
+        Paragraph(f"Como se proteger na plataforma?: {limpar_texto_pdf(plataforma)}", title_style),
         Spacer(1, 15),
         Paragraph(f"Grau Geral de Risco Detectado: {analise['pontuacao_risco']}%", h2_style),
         Paragraph(limpar_texto_pdf(analise['resumo_claro']), body_style),
@@ -317,7 +317,7 @@ MAPA_ICONES = {
     "YouTube": "https://img.icons8.com/fluency/96/youtube-play.png"
 }
 
-st.markdown('<div style="text-align: center;"><h1>🌹 O Espelho da Verdade</h1></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: center;"><h1>ATPPD - Analisador de Termos de Privacidade das Plataformas Digitais</h1></div>', unsafe_allow_html=True)
 st.markdown('<div class="gold-divider"></div>', unsafe_allow_html=True)
 
 # Centralização da Caixa de Seleção
@@ -327,11 +327,11 @@ with col_s2:
 
 if opcao != "Selecione...":
     # Carregando texto e consultando a IA resiliente
-    analise, fallback = analisar_ia_com_contingencia("Contrato fictício ou real para análise...", opcao)
+    analise, fallback = analisar_ia_com_contingencia("Analisando...", opcao)
  
     # Se o Gemini estava congestionado (Erro 503), exibe aviso temático amigável
     if fallback:
-        st.info("🔮 *O Espelho da Verdade está sob uma névoa de alta demanda neste momento. Para sua segurança imediata, revelamos o Laudo Sagrado de nossa biblioteca interna de contingência.*")
+        st.info("A API do Site está com erro, mas não vamos te deixar na mão, fique com uma analise mais simplicada somente dos nossos arquivos internos.*")
 
     if analise:
         c1, c2 = st.columns([2, 1])
@@ -339,7 +339,7 @@ if opcao != "Selecione...":
             st.markdown(f"""
                 <div style="display: flex; align-items: center; gap: 15px;">
                     <img src="{MAPA_ICONES[opcao]}" width="60">
-                    <h3>Relatório Real de {opcao}</h3>
+                    <h3>Relatório de {opcao}</h3>
                 </div>
             """, unsafe_allow_html=True)
             st.markdown(f'<div class="parchment-card">{analise["resumo_claro"]}</div>', unsafe_allow_html=True)
@@ -378,7 +378,7 @@ if opcao != "Selecione...":
             """, unsafe_allow_html=True)
 
         with f2:
-            st.subheader("🛡️ Escudo de Defesa")
+            st.subheader("Como se proteger na Plataforma?")
             st.markdown("Siga as orientações práticas para se proteger dentro do aplicativo:")
  
             for d in analise['dicas_protecao']:
@@ -391,9 +391,9 @@ if opcao != "Selecione...":
                 pdf_output = gerar_pdf_corrigido(opcao, analise)
                 if pdf_output:
                     st.download_button(
-                        label="📜 Baixar Guia Prático em PDF",
+                        label="Baixar Guia Prático em PDF",
                         data=pdf_output,
-                        file_name=f"Escudo_Defesa_{opcao}.pdf",
+                        file_name=f"Seguranca_Digital_{opcao}.pdf",
                         mime="application/pdf",
                         use_container_width=True
                     )
@@ -401,7 +401,7 @@ if opcao != "Selecione...":
                 st.warning("O motor de PDFs está offline no momento. Utilize o guia na tela.")
 
         st.markdown('<div class="gold-divider"></div>', unsafe_allow_html=True)
-        st.subheader("📊 Comparativo Geral de Periculosidade")
+        st.subheader("Comparativo Geral de Periculosidade")
  
         # Estrutura de dados do gráfico
         df_plot = pd.DataFrame({
@@ -437,8 +437,8 @@ if opcao != "Selecione...":
         # --- RELATÓRIO DE INTERPRETAÇÃO DO GRÁFICO ---
         st.markdown(f"""
             <div class="parchment-card" style="border-top: 4px solid #162E5C; margin-top: 15px;">
-                <h4 style="margin-top:0">📜 Interpretação do Espelho</h4>
-                <p>O gráfico acima revela a hierarquia das sombras no reino digital.
+                <h4 style="margin-top:0">Interpretação Comparativa</h4>
+                <p>O gráfico acima revela os riscos que você pode ter nas plataformas.
                 Observamos que o TikTok e o Facebook se posicionam como as "Feras" mais dominantes,
                 apresentando níveis de risco críticos (acima de 85%) devido à coleta agressiva de dados biométricos e comportamentais.
                 Em contrapartida, o WhatsApp, embora pertença à Meta, figura como o "Convidado" mais seguro desta lista,
