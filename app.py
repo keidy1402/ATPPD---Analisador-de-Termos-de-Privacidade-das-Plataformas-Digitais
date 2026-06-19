@@ -14,7 +14,7 @@ logo_imagem = Image.open("logo.png")
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
-    page_title="Analisador de Privacidade Digital",
+    page_title="ATPPD",
     page_icon=logo_imagem, # <-- LOGO NA ABA DO NAVEGADOR
     layout="wide"
 )
@@ -82,7 +82,7 @@ col_logo, col_title = st.columns([2, 10])
 with col_logo:
     st.image(logo_imagem, use_container_width=True) # <-- LOGO NO CABEÇALHO DA PÁGINA
 with col_title:
-    st.title("Analisador de Termos de Privacidade")
+    st.title("ATPPD - Analisador Termos de Privacidade das Plataformas Digitais")
     st.caption("Promovendo transparência, clareza e segurança digital sobre os seus dados pessoais.")
 
 st.markdown("---")
