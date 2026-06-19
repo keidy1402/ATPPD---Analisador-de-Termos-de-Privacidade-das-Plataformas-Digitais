@@ -72,9 +72,11 @@ dados_risco = {
 }
 
 # --- HEADER PRINCIPAL ---
-col_logo, col_title = st.columns([1, 11])
+# Ajustei a proporção das colunas para [2, 10] caso a imagem precise de um pouco mais de espaço. 
+# Sinta-se livre para voltar a [1, 11] se preferir a logo menor.
+col_logo, col_title = st.columns([2, 10]) 
 with col_logo:
-    st.markdown("<h1 style='text-align: center; margin: 0;'>🛡️</h1>", unsafe_allow_html=True)
+    st.image(logo_imagem, use_container_width=True) # <-- LOGO NO CABEÇALHO DA PÁGINA
 with col_title:
     st.title("Analisador de Termos de Privacidade")
     st.caption("Promovendo transparência, clareza e segurança digital sobre os seus dados pessoais.")
