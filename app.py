@@ -1,6 +1,3 @@
-Aqui está o código completo, com todas as indentações corrigidas (espaços invisíveis removidos), erros de sintaxe resolvidos e pronto para você copiar, colar e rodar.
-
-```python
 import streamlit as st
 import pandas as pd
 from google import genai
