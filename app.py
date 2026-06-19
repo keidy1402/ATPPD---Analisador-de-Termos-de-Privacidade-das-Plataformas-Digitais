@@ -518,5 +518,3 @@ if opcao != "Selecione...":
                 """, unsafe_allow_html=True)
 
 st.markdown('<div class="footer">FGV-ECMI | Aluna: Keidy Alves Pizzetti Amaro | Prof. Josir Gomes</div>', unsafe_allow_html=True)
-
-```
