@@ -10,7 +10,7 @@ import os
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
     page_title="Analisador de Privacidade Digital",
-    page_icon="🛡️",
+    page_icon="f"{logo.png}",
     layout="wide"
 )
 
