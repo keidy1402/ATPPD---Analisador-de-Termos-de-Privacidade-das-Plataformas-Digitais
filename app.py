@@ -6,14 +6,18 @@ import requests
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import os
+from PIL import Image # <-- NOVA IMPORTAÇÃO
+
+# Carrega a sua logo (certifique-se de que o arquivo 'logo.png' está na mesma pasta)
+# Se a imagem tiver outro nome ou extensão, altere aqui.
+logo_imagem = Image.open("logo.png")
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
     page_title="Analisador de Privacidade Digital",
-    page_icon="f"{logo.png}",
+    page_icon=logo_imagem, # <-- LOGO NA ABA DO NAVEGADOR
     layout="wide"
 )
-
 # --- CONFIGURAÇÃO DA API DO GEMINI ---
 if "GEMINI_API_KEY" in st.secrets:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
