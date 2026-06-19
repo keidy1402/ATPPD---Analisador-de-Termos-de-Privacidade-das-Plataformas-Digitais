@@ -56,7 +56,7 @@ opcao = st.selectbox("Escolha uma rede social/plataforma:", plataformas)
 
 if st.button("👁️ Analisar Termos de Privacidade"):
     # Nome esperado para o arquivo (ex: termos/whatsapp.txt)
-    caminho_arquivo = f"termos{opcao.lower()}.txt"
+    caminho_arquivo = f"{opcao.lower()}.txt"
     
     # Verifica se o arquivo .txt realmente existe na pasta
     if not os.path.exists(caminho_arquivo):
